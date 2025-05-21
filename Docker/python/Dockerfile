@@ -1,4 +1,7 @@
-# Python 3.9-base with minimal extras\ nFROM python:3.9-slim
+FROM python:3.9-slim
 WORKDIR /app
-# Встановлення залежностей\ nCOPY requirements.txt .
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+COPY fcm.py .
+EXPOSE 8080
+CMD ["python","fcm.py"]
