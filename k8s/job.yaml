@@ -4,6 +4,9 @@ metadata:
   name: fcm-job
 spec:
   template:
+    metadata:
+      labels:
+        job-name: fcm-job      # додаємо лейбл, щоб відповідати селектору
     spec:
       imagePullSecrets:
         - name: ghcr-secret
