@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: fcm-cronjob
+spec:
+  schedule: "0 3 * * *" # щодня о 03:00 за локальним часом
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: fcm
+        spec:
+          containers:
+          - name: fcm
+            image: <your-repo>/fcm:latest
+          restartPolicy: OnFailure

@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  fcm:
+    build:
+      context: .
+      dockerfile: Docker/python/Dockerfile
+    image: <your-repo>/fcm:latest
+    container_name: fcm_app
+    volumes:
+      - ./:/app
+    command: ["python", "fcm.py"]
