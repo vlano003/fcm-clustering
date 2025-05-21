@@ -16,7 +16,7 @@ spec:
       - name: ghcr-secret
       containers:
       - name: fcm
-        image: ghcr.io/vlano003/fcm-clustering:latest
+        image: ghcr.io/vlano003/fcm-clustering:v1.1
         command: ["python","fcm.py"]
         ports:
         - containerPort: 8080
