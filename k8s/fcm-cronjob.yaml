@@ -3,15 +3,15 @@ kind: CronJob
 metadata:
   name: fcm-cronjob
 spec:
-  schedule: "0 3 * * *" # щодня о 03:00 за локальним часом
+  schedule: "0 3 * * *"
   jobTemplate:
     spec:
       template:
-        metadata:
-          labels:
-            app: fcm
         spec:
+          imagePullSecrets:
+            - name: ghcr-secret
           containers:
-          - name: fcm
-            image: ghcr.io/vlano003/fcm-clustering:latest
+            - name: fcm
+              image: ghcr.io/vlano003/fcm-clustering:latest
+              command: ["python","fcm.py"]
           restartPolicy: OnFailure
