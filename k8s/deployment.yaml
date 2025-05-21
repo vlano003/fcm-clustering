@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fcm-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fcm
+  template:
+    metadata:
+      labels:
+        app: fcm
+    spec:
+      containers:
+      - name: fcm
+        image: ghcr.io/vlano003/fcm-clustering:latest
+        command: ["python", "fcm.py"]
+        imagePullPolicy: Always
