@@ -1,12 +1,10 @@
 apiVersion: v1
 kind: Service
-metadata:
-  name: fcm-service
+metadata: {name: fcm-service}
 spec:
-  selector:
-    app: fcm
+  type: NodePort
+  selector: {app:fcm}
   ports:
-  - protocol: TCP
-    port: 80
+  - port: 80
     targetPort: 8080
-  type: ClusterIP
+    nodePort: 30080
