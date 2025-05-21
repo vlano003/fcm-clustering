@@ -9,9 +9,9 @@ spec:
       template:
         spec:
           imagePullSecrets:
-            - name: ghcr-secret
+          - name: ghcr-secret
           containers:
-            - name: fcm
-              image: ghcr.io/vlano003/fcm-clustering:latest
-              command: ["python","fcm.py"]
+          - name: fcm
+            image: ghcr.io/vlano003/fcm-clustering:latest
+            command: ["python","fcm.py"]
           restartPolicy: OnFailure
