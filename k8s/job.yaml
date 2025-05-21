@@ -3,10 +3,14 @@ kind: Job
 metadata:
   name: fcm-job
 spec:
+  # Додаємо явний selector, що відповідає label шаблону
+  selector:
+    matchLabels:
+      job-name: fcm-job
   template:
     metadata:
       labels:
-        job-name: fcm-job      # додаємо лейбл, щоб відповідати селектору
+        job-name: fcm-job
     spec:
       imagePullSecrets:
         - name: ghcr-secret
